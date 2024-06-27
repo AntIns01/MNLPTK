@@ -23,12 +23,12 @@ class TokenType(Enum):
 
     def pesos_por_defecto(self):
         if self == TokenType.BUENO:
-            return 3
+            return 2
         elif self == TokenType.MALO:
             return 4
         elif self == TokenType.SALUDO:
-            return 2
+            return 3
         elif self == TokenType.DESPEDIDA:
-            return 2
+            return 3
         else:
             return 0

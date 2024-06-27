@@ -64,15 +64,15 @@ class MinimalTokenizer:
 
     def __evaluacion_final(self, bueno_normalizado: float, malo_normalizado: float, saludo_normalizado: float,
                            despedida_normalizado: float) -> float:
-        if self.tiene_saludo:
-            saludo_normalizado += 0.03  # Si tiene saludo
-        else:
-            saludo_normalizado -= 0.2 * TokenType.SALUDO.pesos_por_defecto()
+        if not self.tiene_saludo:
+            # saludo_normalizado += 0.03  # Si tiene saludo
+            # else:
+            saludo_normalizado -= 0.3 * TokenType.SALUDO.pesos_por_defecto()
 
-        if self.tiene_despedida:
-            despedida_normalizado += 0.03  # Si tiene despedida
-        else:
-            despedida_normalizado -= 0.2 * TokenType.SALUDO.pesos_por_defecto()
+        if not self.tiene_despedida:
+            # despedida_normalizado += 0.03  # Si tiene despedida
+            # else:
+            despedida_normalizado -= 0.3 * TokenType.SALUDO.pesos_por_defecto()
 
         return bueno_normalizado - malo_normalizado + saludo_normalizado + despedida_normalizado
 

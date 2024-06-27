@@ -104,20 +104,22 @@ class App(tk.Tk):
 
             minimal_tokenizer.buscar_lexemas()
             self.text_display.delete(1.0, tk.END)
-            self.text_display.insert(tk.END, "\nEvaluación:\n")
+            self.text_display.insert(tk.END, self.text + "\n\n")
+            self.text_display.insert(tk.END, "\nEvaluación:\n\n")
 
             if minimal_tokenizer.tiene_saludo:
-                self.text_display.insert(tk.END, "Contiene saludo\n")
+                self.text_display.insert(tk.END, "Posee palabras tokenizadas de saludo\n\n")
             else:
-                self.text_display.insert(tk.END, "NO contiene saludo\n")
+                self.text_display.insert(tk.END, "No Posee palabras tokenizadas de saludo\n\n")
 
             if minimal_tokenizer.tiene_despedida:
-                self.text_display.insert(tk.END, "Contiene despedida\n")
+                self.text_display.insert(tk.END, "Posee palabras tokenizadas de despedida\n\n")
             else:
-                self.text_display.insert(tk.END, "NO contiene despedida\n")
+                self.text_display.insert(tk.END, "No posse palabras tokenizadas de despedida\n\n")
 
             message, score = minimal_tokenizer.evaluacion
-            self.text_display.insert(tk.END, f"Evaluación final: {message}({score})\n")
+            self.text_display.insert(tk.END, f"Evaluación final: {message}\n")
+            self.text_display.insert(tk.END, f"({score})\n\n")
 
             self.tokenized_words = minimal_tokenizer.tokenized_lex
             print("Tokenized Lexemas:")
